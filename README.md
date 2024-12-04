@@ -3,20 +3,28 @@
 - Python project dedicated toward quant & adtech folks 
 - Fintech that leverages the PyPortfolioOpt to analyze REIT & Adtech securities
 
-## Updated Project Summary Due Q2-2025
+## Updated Project Summary Due Q2-2027
+- Clean up uneccesary files
+- Expand on the examples and leverage more of the PyPortoflio libraries 
+- Integrate LLM for backtesting
 
 # Project Inspiration 
 
-In a prior year, a team named "Wall Street Bets" (Lana Butorovic, Austen Johnson, Joseph Min, and Ryan Schmid) wrote a web app hosted out of [this repo](https://github.com/rws222/fin377-project-site). They used [PyPortfolioOpt](https://pyportfolioopt.readthedocs.io/en/latest/index.html) to plot the efficient frontier and tangency portfolio, and then developed a short quiz to assess the risk aversion parameter for a quadratic utility maximizing investor. With this parameter, they suggested a utlity maximizing portfolio. 
+## Predecessors & Influencers 
 
-Sadly, their site is no longer working because Heroku, where they hosted it, stopped free services. 
+- In a prior year, a team named "Wall Street Bets" (Lana Butorovic, Austen Johnson, Joseph Min, and Ryan Schmid) wrote a web app hosted out of [this repo](https://github.com/rws222/fin377-project-site). They used [PyPortfolioOpt](https://pyportfolioopt.readthedocs.io/en/latest/index.html) to plot the efficient frontier and tangency portfolio, and then developed a short quiz to assess the risk aversion parameter for a quadratic utility maximizing investor. With this parameter, they suggested a utlity maximizing portfolio. 
 
-Don Bowen their project here to demonstrate the use of [Streamlit](https://streamlit.io) for dashboard development and deployment. I've refactored the code in places and added a small tweak to the code to allow for levered portfolios (by shorting the risk free asset).
+- Sadly, their site is no longer working because Heroku, where they hosted it, stopped free services. 
+
+- Don Bowen their project here to demonstrate the use of [Streamlit](https://streamlit.io) for dashboard development and deployment. I've refactored the code in places and added a small tweak to the code to allow for levered portfolios (by shorting the risk free asset).
 
 [You can see this dashboard in action here!](https://donbowen-portfolio-frontier-streamlit-dashboard-app-yentvd.streamlit.app/)
 
-## How to 
+## Quick Start 
 
+### Requirements
+- Due to the changing nature of dependencies, user may experience errors like: library,, OS, and other issues around code not being able to perform calculations 
+- Currently working on documenting these issues more, but see original project to learn more at [PyPi] (https://pyportfolioopt.readthedocs.io/en/latest/index.html)
 ### If you want to get this app working on your computer so you can use it, play around with it, or modify it, you need:
 1. A working python / Anaconda installation
 1. Git 
