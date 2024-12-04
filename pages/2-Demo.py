@@ -28,6 +28,44 @@ for percent_complete in range(100):
 time.sleep(1)
 my_bar.empty()
 
+    #########################
+# tab3 edits-starts
+@st.cache_data
+def fetch_prices(tickers, period="max"):
+    """Fetch historical price data using Yahoo Finance."""
+    try:
+        ohlc = yf.download(tickers, period=period)
+        prices = ohlc["Adj Close"].dropna(how="all")
+        return prices
+    except Exception as e:
+        st.error(f"Failed to fetch ticker data: {e}")
+        return None
+
+@st.cache_data
+def compute_covariance(prices):
+    """Compute covariance matrix using Ledoit-Wolf shrinkage."""
+    try:
+        from pypfopt import risk_models
+        S = risk_models.CovarianceShrinkage(prices).ledoit_wolf()
+        return S
+    except Exception as e:
+        st.error(f"Failed to compute covariance matrix: {e}")
+        return None
+
+@st.cache_data
+def compute_expected_returns(prices):
+    """Estimate expected returns using CAPM."""
+    try:
+        from pypfopt import expected_returns
+        return expected_returns.capm_return(prices)
+    except Exception as e:
+        st.error(f"Failed to estimate expected returns: {e}")
+        return None
+#########################
+# tab3 edits-ends
+
+
+
 # Create tabs
 tab1, tab2, tab3 = st.tabs(["Python & Finance","Efficient-Frontier Analysis", "Portfolio Allocation"])
 
@@ -292,7 +330,7 @@ fig5 = go.Figure(data=[fig1, fig2, fig3, fig4])
 
 # Add axis labels, title, and set axis ranges
 fig5.update_layout(
-    title="REIT & Adtech Portfolio Analysis",
+    title="PORTFOLIO",
     xaxis=dict(
         title="Volatility (σ)",
         range=[x_min_offset, x_max]  # Adjusted x-axis range for padding
@@ -316,20 +354,21 @@ st.plotly_chart(fig5, use_container_width=True)
 
 
 #########################################
-# Tab 2: Future Expansion (Blank for now)
+# Tab 3: Future Expansion (Blank for now)
 #########################################    
+## Blocks below work
 with tab3:
     st.write("PART II: PyPortfolioOpt's mean-variance capabilities")
     from pypfopt import DiscreteAllocation
-    
+
     #use yf to get of REIT & ADTECH tickers 
     tickers = [
     "PLD", "AMT", "EQIX", "WELL", "SPG", "PSA", "CCI", "DLR", "O", "CSGP",
     "VICI", "EXR", "AVB", "SBAC", "CBRE", "EQR", "INVH", "VTR", "ARE",
     "RKT", "SUI", "MAA", "AMH", "ESS", "ELS", "GLPI", "WPC", "HST", "UDR", "REG",
-    "CPT", "PEAK", "CUBE", "BXP", "OHI", "EGP", "OMC", "LAMR", "IPG", "ZETA",
+    "CPT", "CUBE", "BXP", "OHI", "EGP", "OMC", "LAMR", "IPG", "ZETA",
     "DV", "ZD", "OUT", "MGNI", "STGW", "IAS", "TBLA", "ADV", "PUBM", "QNST",
-    "TTGT", "MAX", "CCO", "DSP", "NCMI", "BOC", "ADTH", "QUAD", "CTV", "OB",
+    "TTGT", "MAX", "CCO", "DSP", "NCMI", "BOC", "QUAD", "CTV", "OB",
     "SCOR", "MCHX", "HHS", "DRCT", "IZEA", "INUV", "MRIN"]
 
     #download the tickers info
@@ -597,3 +636,7 @@ with tab3:
             width=800,
         )
         st.plotly_chart(fig_constraints, use_container_width=True)
+
+## Blocks above work
+
+

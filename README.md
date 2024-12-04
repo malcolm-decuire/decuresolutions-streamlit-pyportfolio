@@ -24,7 +24,13 @@
 
 ### Requirements
 - Due to the changing nature of dependencies, user may experience errors like: library,, OS, and other issues around code not being able to perform calculations 
-- Currently working on documenting these issues more, but see original project to learn more at [PyPi] (https://pyportfolioopt.readthedocs.io/en/latest/index.html)
+- Currently working on documenting these issues more, but see original project to learn more at [PyPi] (https://pyportfolioopt.readthedocs.io/en/latest/
+index.html)
+
+### Data 
+- App will throw an error if a ticker in the asset list or in the hardcoded array is missing or something is wrong w/ their data feed 
+- Removed PEAK, ADTH for this reason
+
 ### If you want to get this app working on your computer so you can use it, play around with it, or modify it, you need:
 1. A working python / Anaconda installation
 1. Git 
