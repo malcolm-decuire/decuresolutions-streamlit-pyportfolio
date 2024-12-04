@@ -593,7 +593,7 @@ with tab3:
     S = risk_models.CovarianceShrinkage(prices).ledoit_wolf()
 
     # Step 2: Limit the number of assets (reduces problem size)
-    top_assets = mu.nlargest(20).index  # Reduce to top 20 assets
+    top_assets = mu.nlargest(10).index  # Reduce to top 20 assets
     mu = mu[top_assets]
     S = S.loc[top_assets, top_assets]
 
