@@ -2,13 +2,17 @@
 # What is this app
 - Python project dedicated toward quant & adtech folks 
 - Fintech that leverages the PyPortfolioOpt to analyze REIT & Adtech securities
+-Tickers Analyzed: AMT,DLR, DV,EQIX,IPG,LAMR,OMC,PLD,PSA,SPG,WELL,ZD,ZETA 
 
 ## Updated Project Summary Due Q2-2027
 - Clean up uneccesary files
 - Expand on the examples and leverage more of the PyPortoflio libraries 
 - Integrate LLM for backtesting
 
-# Project Inspiration 
+## 202412 HOTFIX
+- YFINANCE LIB WAS THROWING ERRORS THAT THERE WERE NO TICKER SYMBOLS AVAILABLE 
+- ERROR IS POSSIBLY DUE TO HITTING API LIMIT WITHIN A 2 WEEK PERIOD 
+- UPDATED ENTIRE PROJECT TO USE LOCAL EODHD PURCHASED 202406 AND THEN LEVERAGE THAT FOR PROJECT UNTIL UPDATED YFINANCE ISSUE 
 
 ## Predecessors & Influencers 
 
